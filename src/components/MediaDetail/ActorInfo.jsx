@@ -1,6 +1,6 @@
 import ImageComponent from "../Image";
 
-const ActorInfo = ({ name, character, profilePath }) => {
+const ActorInfo = ({ id, name, character, profilePath, episodeCount }) => {
   console.log(name);
   console.log(character);
   console.log(profilePath);
@@ -21,7 +21,13 @@ const ActorInfo = ({ name, character, profilePath }) => {
         <div className="p-3">
           <p className="font-bold">{name}</p>
           <p>{character}</p>
-          {/* <p>18 Espisodes</p> */}
+          {episodeCount && (
+            <p>
+              {episodeCount > 1
+                ? `${episodeCount} Episodes`
+                : `${episodeCount} Episode`}
+            </p>
+          )}
         </div>
       </div>
     </div>

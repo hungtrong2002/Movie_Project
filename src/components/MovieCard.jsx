@@ -4,7 +4,7 @@ import ImageComponent from "./Image";
 
 const MovieCard = ({ id, title, releaseDate, poster, point, mediaType }) => {
   return (
-    <Link to={`/movie/${id}`}>
+    <Link to={mediaType === "tv" ? `/tv/${id}` : `/movie/${id}`}>
       <div className="relative h-full rounded-lg border border-slate-800">
         {mediaType === "tv" && (
           <p className="absolute right-1 top-1 rounded bg-black p-1 text-sm font-bold text-white shadow-md">

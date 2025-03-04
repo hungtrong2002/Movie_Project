@@ -10,22 +10,21 @@ const ImageComponent = ({ src, width, height, className }) => {
     img.onload = () => {
       setCurrentSrc(src);
     };
+    setCurrentSrc(`https://placehold.co/${width}x${height}?text=No Image`);
     return () => {
       //clean up function
       img.onload = null;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [src]);
+  }, [src, width, height]);
 
   return (
-    <div>
-      <img
-        className={currentSrc === src ? className : `${className} blur-md`}
-        src={currentSrc}
-        width={width}
-        height={height}
-      />
-    </div>
+    <img
+      className={currentSrc === src ? className : `${className} blur-md`}
+      src={currentSrc}
+      width={width}
+      height={height}
+    />
   );
 };
 export default ImageComponent;
